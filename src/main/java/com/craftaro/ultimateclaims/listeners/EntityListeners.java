@@ -14,21 +14,13 @@ import com.craftaro.ultimateclaims.tasks.VisualizeTask;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.FallingBlock;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Monster;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockExplodeEvent;
-import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.EntitySpawnEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -36,6 +28,7 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.vehicle.VehicleDestroyEvent;
 import org.bukkit.event.vehicle.VehicleEnterEvent;
 import org.bukkit.event.vehicle.VehicleMoveEvent;
 import org.bukkit.material.Dispenser;
@@ -205,26 +198,66 @@ public class EntityListeners implements Listener {
 
         if (claim != null) {
             Entity source = event.getDamager();
+
+            // If the damage is from an explosion, cancel it inside claims
+            if (event.getCause() == EntityDamageEvent.DamageCause.ENTITY_EXPLOSION
+                    || event.getCause() == EntityDamageEvent.DamageCause.BLOCK_EXPLOSION) {
+                event.setCancelled(true);
+                return;
+            }
+
+            // Handle projectiles
             if (source instanceof Projectile) {
-                ProjectileSource s = ((Projectile) source).getShooter();
-                if (s instanceof Player) {
-                    source = (Player) s;
+                ProjectileSource shooter = ((Projectile) source).getShooter();
+                if (shooter instanceof Player) {
+                    source = (Player) shooter;
                 }
             }
+
             if (source instanceof Player) {
+                Player player = (Player) source;
+
+                // If the damaged entity is NOT a player (i.e., mob or entity)
                 if (!(event.getEntity() instanceof Player)) {
                     if (!(event.getEntity() instanceof LivingEntity) && event.getEntity().getType() != EntityType.ARMOR_STAND) {
-                        event.setCancelled(!claim.playerHasPerms((Player) source, ClaimPerm.BREAK));
-                    } else if (!claim.playerHasPerms((Player) source, ClaimPerm.MOB_KILLING)) {
+                        // Require BREAK permission for non-living entities
+                        event.setCancelled(!claim.playerHasPerms(player, ClaimPerm.BREAK));
+                    } else if (!claim.playerHasPerms(player, ClaimPerm.MOB_KILLING)) {
+                        // Require MOB_KILLING permission for mobs
                         event.setCancelled(true);
                     }
                     return;
                 }
 
+                // If the damaged entity is a player, check PVP setting
                 if (!claim.getClaimSettings().isEnabled(ClaimSetting.PVP)) {
                     event.setCancelled(true);
                 }
             }
+        }
+    }
+    // Prevent vehicle destruction (boats, minecarts, etc.)
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
+    public void onVehicleDestroy(VehicleDestroyEvent event) {
+        if (!(event.getAttacker() instanceof Player)) {
+            return;
+        }
+
+        Player player = (Player) event.getAttacker();
+        Vehicle vehicle = event.getVehicle();
+        ClaimManager claimManager = this.plugin.getClaimManager();
+        Chunk chunk = vehicle.getLocation().getChunk();
+
+        if (!claimManager.hasClaim(chunk)) {
+            return;
+        }
+
+        Claim claim = claimManager.getClaim(chunk);
+
+        // Check if player has permission to destroy vehicles in claim
+        if (!claim.playerHasPerms(player, ClaimPerm.BREAK)) {
+            this.plugin.getLocale().getMessage("event.general.nopermission").sendPrefixedMessage(player);
+            event.setCancelled(true);
         }
     }
 
@@ -260,6 +293,8 @@ public class EntityListeners implements Listener {
                     }
                     break;
                 case PRIMED_TNT:
+                case MINECART_TNT:
+                case ENDER_CRYSTAL:
                     if (!claim.getClaimSettings().isEnabled(ClaimSetting.TNT)
                             || (powerCell.hasLocation() && powerCell.getLocation().equals(block.getLocation()))) {
                         event.blockList().remove(block);
