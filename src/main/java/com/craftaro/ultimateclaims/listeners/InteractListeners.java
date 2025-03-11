@@ -286,6 +286,10 @@ public class InteractListeners implements Listener {
             case "CHERRY_DOOR":
             case "BAMBOO_DOOR":
             case "COPPER_DOOR":
+            case "EXPOSED_COPPER_DOOR":
+            case "WEATHERED_COPPER_DOOR":
+            case "OXIDIZED_COPPER_DOOR":
+            case "IRON_DOOR":
                 // Trapdoors
             case "ACACIA_TRAPDOOR":
             case "BIRCH_TRAPDOOR":
@@ -300,6 +304,9 @@ public class InteractListeners implements Listener {
             case "CHERRY_TRAPDOOR":
             case "BAMBOO_TRAPDOOR":
             case "COPPER_TRAPDOOR":
+            case "EXPOSED_COPPER_TRAPDOOR":
+            case "WEATHERED_COPPER_TRAPDOOR":
+            case "OXIDIZED_COPPER_TRAPDOOR":
 
                 // Fence Gates
             case "OAK_FENCE_GATE":
@@ -313,6 +320,11 @@ public class InteractListeners implements Listener {
             case "MANGROVE_FENCE_GATE":
             case "CHERRY_FENCE_GATE":
             case "BAMBOO_FENCE_GATE":
+            case "COPPER_FENCE_GATE":
+            case "EXPOSED_COPPER_FENCE_GATE":
+            case "WEATHERED_COPPER_FENCE_GATE":
+            case "OXIDIZED_COPPER_FENCE_GATE":
+
                 // Legacy values (for compatibility with older versions)
             case "WOODEN_DOOR":
             case "WOOD_DOOR":
