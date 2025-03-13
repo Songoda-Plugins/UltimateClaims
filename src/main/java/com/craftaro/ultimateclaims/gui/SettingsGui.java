@@ -35,11 +35,11 @@ public class SettingsGui extends CustomizableGui {
         mirrorFill("mirrorfill_3", 0, 1, true, true, glass2);
 
         // exit buttons
-        this.setButton("back", 0, GuiUtils.createButtonItem(XMaterial.OAK_FENCE_GATE,
-                        plugin.getLocale().getMessage("general.interface.back").toText(),
+        this.setButton("exit", 8, GuiUtils.createButtonItem(XMaterial.OAK_FENCE_GATE,
                         plugin.getLocale().getMessage("general.interface.exit").toText()),
                 (event) -> event.player.closeInventory());
-        this.setButton("back", 8, this.getItem(0),
+        this.setButton("back", 0, GuiUtils.createButtonItem(XMaterial.OAK_FENCE_GATE,
+                        plugin.getLocale().getMessage("general.interface.back").toText()),
                 (event) -> this.guiManager.showGUI(event.player, claim.getPowerCell().getGui(event.player)));
 
         // shortcuts for member settings
@@ -73,7 +73,7 @@ public class SettingsGui extends CustomizableGui {
             this.setButton("tnt", 1, 6, XMaterial.TNT.parseItem(), (event) -> toggle(ClaimSetting.TNT));
         }
         if (this.fly = player.hasPermission("ultimateclaims.toggle.fly")) {
-            this.setButton("tnt", 1, 7, XMaterial.ELYTRA.parseItem(), (event) -> toggle(ClaimSetting.FLY));
+            this.setButton("fly", 1, 7, XMaterial.ELYTRA.parseItem(), (event) -> toggle(ClaimSetting.FLY));
         }
 
         refreshDisplay();
