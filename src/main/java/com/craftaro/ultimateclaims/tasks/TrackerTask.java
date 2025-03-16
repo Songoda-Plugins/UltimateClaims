@@ -117,9 +117,11 @@ public class TrackerTask extends BukkitRunnable implements Listener {
 
         //Disable flight if player is not using essentials fly
         if (!trackedPlayer.isEssentialsFly()) {
-            player.setAllowFlight(false);
-            player.setFlying(false);
-            player.setFallDistance(0F);
+            Bukkit.getScheduler().runTask(plugin, () -> {
+                player.setAllowFlight(false);
+                player.setFlying(false);
+                player.setFallDistance(0F);
+            });
         }
 
         //Disable fly tracking regardless of Essentials fly status
