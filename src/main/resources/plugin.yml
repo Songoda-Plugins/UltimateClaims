@@ -3,7 +3,7 @@ description: ${project.description}
 version: ${project.version}
 api-version: 1.13
 
-main: com.craftaro.ultimateclaims.UltimateClaims
+main: com.songoda.ultimateclaims.UltimateClaims
 loadbefore:
   - WorldGuard
 softdepend:
