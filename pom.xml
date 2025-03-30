@@ -10,7 +10,7 @@
     <url>https://songoda.com/product/ultimateclaims-14</url>
 
     <properties>
-        <craftaro.coreVersion>3.8.0-SNAPSHOT</craftaro.coreVersion>
+        <craftaro.coreVersion>3.9.0-SNAPSHOT</craftaro.coreVersion>
 
         <maven.compiler.release>8</maven.compiler.release>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -52,8 +52,8 @@
 
                             <relocations>
                                 <relocation>
-                                    <pattern>com.craftaro.core</pattern>
-                                    <shadedPattern>com.craftaro.ultimateclaims.core</shadedPattern>
+                                    <pattern>com.songoda.core</pattern>
+                                    <shadedPattern>com.songoda.ultimateclaims.core</shadedPattern>
                                 </relocation>
                             </relocations>
 
@@ -69,7 +69,7 @@
                                 </filter>
 
                                 <filter>
-                                    <artifact>com.craftaro:CraftaroCore</artifact>
+                                    <artifact>com.songoda:SongodaCore</artifact>
                                     <excludeDefaults>false</excludeDefaults>
                                     <includes>
                                         <include>**/nms/v*/**</include>
@@ -148,7 +148,7 @@
     <dependencies>
         <dependency>
             <groupId>com.craftaro</groupId>
-            <artifactId>CraftaroCore</artifactId>
+            <artifactId>SongodaCore</artifactId>
             <version>${craftaro.coreVersion}</version>
             <scope>compile</scope>
         </dependency>
