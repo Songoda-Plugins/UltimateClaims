@@ -64,15 +64,22 @@ public class TrackerTask extends BukkitRunnable implements Listener {
                 }
             }
 
-            if ((claim.getClaimSettings().isEnabled(ClaimSetting.FLY)
-                    && player.hasPermission("ultimateclaims.fly")
-                    || player.hasPermission("ultimateclaims.bypass.fly"))
-                    && !player.getAllowFlight()
-                    && player.getGameMode() != GameMode.CREATIVE) {
-                trackedPlayer.setWasFlyActivated(true);
-
-                Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setAllowFlight(true));
+            if (player.getGameMode() != GameMode.CREATIVE) {
+                boolean isMember = claim.isOwnerOrMember(player);
+                if (!isMember && !player.hasPermission("ultimateclaims.bypass.fly")) {
+                    trackedPlayer.setWasFlyActivated(false);
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setAllowFlight(false));
+                }
+                else if (claim.getClaimSettings().isEnabled(ClaimSetting.FLY) && (player.hasPermission("ultimateclaims.fly") || player.hasPermission("ultimateclaims.bypass.fly"))) {
+                        trackedPlayer.setWasFlyActivated(true);
+                        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setAllowFlight(true));
+                } else if (!claim.getClaimSettings().isEnabled(ClaimSetting.FLY)
+                        && player.hasPermission("ultimateclaims.bypass.fly")) {
+                        trackedPlayer.setWasFlyActivated(true);
+                        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setAllowFlight(true));
+                }
             }
+
         }
 
         for (Claim claim : plugin.getClaimManager().getRegisteredClaims()) {
