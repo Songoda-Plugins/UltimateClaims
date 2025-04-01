@@ -1,6 +1,6 @@
 package com.songoda.ultimateclaims.member;
 
-import com.craftaro.core.locale.Locale;
+import com.songoda.core.locale.Locale;
 import com.songoda.ultimateclaims.UltimateClaims;
 
 import java.util.HashSet;

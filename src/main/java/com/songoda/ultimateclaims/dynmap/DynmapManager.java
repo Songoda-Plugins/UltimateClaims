@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.dynmap;
 
-import com.craftaro.core.configuration.Config;
-import com.craftaro.core.utils.TimeUtils;
+import com.songoda.core.configuration.Config;
+import com.songoda.core.utils.TimeUtils;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.claim.region.ClaimCorners;

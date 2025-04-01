@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.tasks;
 
-import com.craftaro.core.compatibility.ServerVersion;
-import com.craftaro.core.utils.ReflectionUtils;
+import com.songoda.core.compatibility.ServerVersion;
+import com.songoda.core.utils.ReflectionUtils;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.claim.ClaimManager;

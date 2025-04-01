@@ -1,14 +1,14 @@
 package com.songoda.ultimateclaims;
 
-import com.craftaro.core.SongodaCore;
-import com.craftaro.core.SongodaPlugin;
-import com.craftaro.core.commands.CommandManager;
-import com.craftaro.core.configuration.Config;
-import com.craftaro.core.gui.GuiManager;
-import com.craftaro.core.hooks.EconomyManager;
-import com.craftaro.core.hooks.HologramManager;
-import com.craftaro.core.hooks.WorldGuardHook;
-import com.craftaro.third_party.com.cryptomorin.xseries.XMaterial;
+import com.songoda.core.SongodaCore;
+import com.songoda.core.SongodaPlugin;
+import com.songoda.core.commands.CommandManager;
+import com.songoda.core.configuration.Config;
+import com.songoda.core.gui.GuiManager;
+import com.songoda.core.hooks.EconomyManager;
+import com.songoda.core.hooks.HologramManager;
+import com.songoda.core.hooks.WorldGuardHook;
+import com.songoda.third_party.com.cryptomorin.xseries.XMaterial;
 import com.songoda.ultimateclaims.claim.AuditManager;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.claim.ClaimManager;

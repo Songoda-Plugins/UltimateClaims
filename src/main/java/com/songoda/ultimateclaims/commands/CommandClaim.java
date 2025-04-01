@@ -1,8 +1,8 @@
 package com.songoda.ultimateclaims.commands;
 
-import com.craftaro.core.commands.AbstractCommand;
-import com.craftaro.core.hooks.WorldGuardHook;
-import com.craftaro.core.utils.TimeUtils;
+import com.songoda.core.commands.AbstractCommand;
+import com.songoda.core.hooks.WorldGuardHook;
+import com.songoda.core.utils.TimeUtils;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.api.events.ClaimChunkClaimEvent;
 import com.songoda.ultimateclaims.api.events.ClaimCreateEvent;

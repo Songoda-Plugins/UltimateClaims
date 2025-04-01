@@ -1,9 +1,9 @@
 package com.songoda.ultimateclaims.database;
 
-import com.craftaro.core.database.DataManager;
-import com.craftaro.core.database.DatabaseConnector;
-import com.craftaro.core.database.DatabaseType;
-import com.craftaro.core.utils.ItemSerializer;
+import com.songoda.core.database.DataManager;
+import com.songoda.core.database.DatabaseConnector;
+import com.songoda.core.database.DatabaseType;
+import com.songoda.core.utils.ItemSerializer;
 import com.songoda.ultimateclaims.claim.Audit;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.claim.ClaimSetting;

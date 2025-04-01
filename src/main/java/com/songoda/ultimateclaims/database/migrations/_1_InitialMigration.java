@@ -1,6 +1,6 @@
 package com.songoda.ultimateclaims.database.migrations;
 
-import com.craftaro.core.database.DataMigration;
+import com.songoda.core.database.DataMigration;
 
 import java.sql.Connection;
 import java.sql.SQLException;

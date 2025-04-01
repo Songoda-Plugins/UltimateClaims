@@ -1,9 +1,9 @@
 package com.songoda.ultimateclaims.claim;
 
-import com.craftaro.core.compatibility.ServerVersion;
-import com.craftaro.core.utils.PlayerUtils;
-import com.craftaro.third_party.com.cryptomorin.xseries.XMaterial;
-import com.craftaro.third_party.com.cryptomorin.xseries.XSound;
+import com.songoda.core.compatibility.ServerVersion;
+import com.songoda.core.utils.PlayerUtils;
+import com.songoda.third_party.com.cryptomorin.xseries.XMaterial;
+import com.songoda.third_party.com.cryptomorin.xseries.XSound;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.api.events.ClaimDeleteEvent;
 import com.songoda.ultimateclaims.api.events.ClaimTransferOwnershipEvent;

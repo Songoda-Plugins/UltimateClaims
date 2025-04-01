@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.listeners;
 
-import com.craftaro.core.compatibility.ServerVersion;
-import com.craftaro.third_party.com.cryptomorin.xseries.XMaterial;
+import com.songoda.core.compatibility.ServerVersion;
+import com.songoda.third_party.com.cryptomorin.xseries.XMaterial;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.claim.ClaimManager;

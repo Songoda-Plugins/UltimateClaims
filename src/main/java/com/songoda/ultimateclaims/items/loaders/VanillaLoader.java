@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.items.loaders;
 
-import com.craftaro.core.compatibility.CompatibleMaterial;
-import com.craftaro.third_party.com.cryptomorin.xseries.XMaterial;
+import com.songoda.core.compatibility.CompatibleMaterial;
+import com.songoda.third_party.com.cryptomorin.xseries.XMaterial;
 import com.songoda.ultimateclaims.items.ItemLoader;
 import org.bukkit.inventory.ItemStack;
 

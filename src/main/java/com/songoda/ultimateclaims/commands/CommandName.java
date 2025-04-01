@@ -1,6 +1,6 @@
 package com.songoda.ultimateclaims.commands;
 
-import com.craftaro.core.commands.AbstractCommand;
+import com.songoda.core.commands.AbstractCommand;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.settings.Settings;

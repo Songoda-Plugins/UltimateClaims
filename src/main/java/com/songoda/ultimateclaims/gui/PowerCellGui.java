@@ -1,14 +1,14 @@
 package com.songoda.ultimateclaims.gui;
 
-import com.craftaro.core.chat.AdventureUtils;
-import com.craftaro.core.gui.CustomizableGui;
-import com.craftaro.core.gui.GuiUtils;
-import com.craftaro.core.hooks.EconomyManager;
-import com.craftaro.core.input.ChatPrompt;
-import com.craftaro.core.utils.NumberUtils;
-import com.craftaro.core.utils.TextUtils;
-import com.craftaro.core.utils.TimeUtils;
-import com.craftaro.third_party.com.cryptomorin.xseries.XMaterial;
+import com.songoda.core.chat.AdventureUtils;
+import com.songoda.core.gui.CustomizableGui;
+import com.songoda.core.gui.GuiUtils;
+import com.songoda.core.hooks.EconomyManager;
+import com.songoda.core.input.ChatPrompt;
+import com.songoda.core.utils.NumberUtils;
+import com.songoda.core.utils.TextUtils;
+import com.songoda.core.utils.TimeUtils;
+import com.songoda.third_party.com.cryptomorin.xseries.XMaterial;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.claim.PowerCell;

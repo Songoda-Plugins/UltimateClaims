@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.gui;
 
-import com.craftaro.core.gui.Gui;
-import com.craftaro.core.gui.GuiUtils;
+import com.songoda.core.gui.Gui;
+import com.songoda.core.gui.GuiUtils;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.items.PowerCellItem;
 import com.songoda.ultimateclaims.settings.Settings;

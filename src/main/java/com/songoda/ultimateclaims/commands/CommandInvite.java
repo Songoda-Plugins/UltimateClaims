@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.commands;
 
-import com.craftaro.core.commands.AbstractCommand;
-import com.craftaro.core.utils.PlayerUtils;
+import com.songoda.core.commands.AbstractCommand;
+import com.songoda.core.utils.PlayerUtils;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.claim.Claim;
 import com.songoda.ultimateclaims.invite.Invite;

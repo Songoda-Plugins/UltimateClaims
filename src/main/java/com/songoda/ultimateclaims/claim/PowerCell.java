@@ -1,9 +1,9 @@
 package com.songoda.ultimateclaims.claim;
 
-import com.craftaro.core.hooks.EconomyManager;
-import com.craftaro.core.hooks.HologramManager;
-import com.craftaro.core.utils.TimeUtils;
-import com.craftaro.third_party.com.cryptomorin.xseries.XMaterial;
+import com.songoda.core.hooks.EconomyManager;
+import com.songoda.core.hooks.HologramManager;
+import com.songoda.core.utils.TimeUtils;
+import com.songoda.third_party.com.cryptomorin.xseries.XMaterial;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.gui.PowerCellGui;
 import com.songoda.ultimateclaims.settings.Settings;

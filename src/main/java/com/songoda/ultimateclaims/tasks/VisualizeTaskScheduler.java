@@ -1,7 +1,7 @@
 package com.songoda.ultimateclaims.tasks;
 
-import com.craftaro.core.SongodaPlugin;
-import com.craftaro.core.thread.TaskScheduler;
+import com.songoda.core.SongodaPlugin;
+import com.songoda.core.thread.TaskScheduler;
 
 public class VisualizeTaskScheduler extends TaskScheduler {
 

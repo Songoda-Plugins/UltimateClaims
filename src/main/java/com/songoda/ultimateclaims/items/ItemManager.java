@@ -1,6 +1,6 @@
 package com.songoda.ultimateclaims.items;
 
-import com.craftaro.core.configuration.Config;
+import com.songoda.core.configuration.Config;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.items.loaders.ItemBridgeLoader;
 import com.songoda.ultimateclaims.items.loaders.ItemsAdderLoader;

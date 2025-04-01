@@ -1,6 +1,6 @@
 package com.songoda.ultimateclaims.commands;
 
-import com.craftaro.core.commands.AbstractCommand;
+import com.songoda.core.commands.AbstractCommand;
 import com.songoda.ultimateclaims.UltimateClaims;
 import com.songoda.ultimateclaims.tasks.VisualizeTask;
 import net.md_5.bungee.api.ChatColor;
