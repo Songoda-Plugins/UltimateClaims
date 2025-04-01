@@ -20,13 +20,13 @@
     </properties>
 
     <issueManagement>
-        <url>https://discord.gg/craftaro</url>
+        <url>https://discord.gg/7TXM8xr2Ng</url>
         <system>Discord server</system>
     </issueManagement>
 
     <scm>
-        <url>https://github.com/craftaro/UltimateClaims</url>
-        <connection>scm:git:git://github.com/craftaro/UltimateClaims.git</connection>
+        <url>https://github.com/Songoda-Plugins/SongodaCore</url>
+        <connection>scm:git:git://github.com/Songoda-Plugins/SongodaCore.git</connection>
     </scm>
 
     <build>
