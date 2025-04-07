@@ -104,13 +104,40 @@ public class EntityListeners implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onSpawn(EntitySpawnEvent event) {
-        ClaimManager claimManager = this.plugin.getClaimManager();
+        Entity entity = event.getEntity();
+        if (entity instanceof LivingEntity)
+            return;
 
-        if (claimManager.hasClaim(event.getLocation().getChunk())) {
-            Claim claim = claimManager.getClaim(event.getLocation().getChunk());
-            if (!claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING) && event.getEntity() instanceof Monster) {
+        ClaimManager claimManager = this.plugin.getClaimManager();
+        Location location = event.getLocation();
+
+        if (!claimManager.hasClaim(location.getChunk()))
+            return;
+
+        Claim claim = claimManager.getClaim(location.getChunk());
+
+        if (entity instanceof FallingBlock || entity instanceof ItemFrame || entity instanceof Painting || entity instanceof Minecart || entity instanceof TNTPrimed || entity instanceof EnderCrystal || entity instanceof Projectile || entity instanceof Boat) {
+
+            if (!claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING))
                 event.setCancelled(true);
-            }
+        }
+    }
+
+    @EventHandler(ignoreCancelled = true)
+    public void onSpawn(CreatureSpawnEvent event) {
+        ClaimManager claimManager = this.plugin.getClaimManager();
+        Location location = event.getLocation();
+        if (!claimManager.hasClaim(location.getChunk()))
+            return;
+
+        Claim claim = claimManager.getClaim(location.getChunk());
+        Entity entity = event.getEntity();
+
+        if (entity instanceof Monster &&
+                !claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING) &&
+                event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.CUSTOM &&
+                event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.COMMAND) {
+            event.setCancelled(true);
         }
     }
 
