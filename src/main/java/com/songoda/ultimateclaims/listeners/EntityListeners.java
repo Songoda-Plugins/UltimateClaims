@@ -115,8 +115,8 @@ public class EntityListeners implements Listener {
             return;
 
         Claim claim = claimManager.getClaim(location.getChunk());
-
-        if (entity instanceof FallingBlock || entity instanceof ItemFrame || entity instanceof Painting || entity instanceof Minecart || entity instanceof TNTPrimed || entity instanceof EnderCrystal || entity instanceof Projectile || entity instanceof Boat) {
+        //FallBack Check for TNT and Ender Crystal etc.
+        if (entity instanceof TNTPrimed || entity instanceof EnderCrystal) {
 
             if (!claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING))
                 event.setCancelled(true);
