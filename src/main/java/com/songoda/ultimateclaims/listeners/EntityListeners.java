@@ -127,17 +127,29 @@ public class EntityListeners implements Listener {
     public void onSpawn(CreatureSpawnEvent event) {
         ClaimManager claimManager = this.plugin.getClaimManager();
         Location location = event.getLocation();
+
         if (!claimManager.hasClaim(location.getChunk()))
             return;
 
         Claim claim = claimManager.getClaim(location.getChunk());
         Entity entity = event.getEntity();
 
-        if (entity instanceof Monster &&
-                !claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING) &&
-                event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.CUSTOM &&
-                event.getSpawnReason() != CreatureSpawnEvent.SpawnReason.COMMAND) {
-            event.setCancelled(true);
+        if (!(entity instanceof Monster))
+            return;
+
+        boolean hostileSpawningAllowed = claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING);
+        boolean allowPets = Settings.ALLOW_COMMAND_SPAWN.getBoolean();
+
+        CreatureSpawnEvent.SpawnReason reason = event.getSpawnReason();
+
+        if (!hostileSpawningAllowed) {
+            if ((reason == CreatureSpawnEvent.SpawnReason.CUSTOM || reason == CreatureSpawnEvent.SpawnReason.COMMAND)) {
+                if (!allowPets) {
+                    event.setCancelled(true);
+                }
+            } else {
+                event.setCancelled(true);
+            }
         }
     }
 
