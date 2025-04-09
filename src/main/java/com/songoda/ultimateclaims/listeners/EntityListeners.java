@@ -138,13 +138,13 @@ public class EntityListeners implements Listener {
             return;
 
         boolean hostileSpawningAllowed = claim.getClaimSettings().isEnabled(ClaimSetting.HOSTILE_MOB_SPAWNING);
-        boolean allowPets = Settings.ALLOW_COMMAND_SPAWN.getBoolean();
+        boolean allowCustomSpawning = Settings.ALLOW_CUSTOM_SPAWN.getBoolean();
 
         CreatureSpawnEvent.SpawnReason reason = event.getSpawnReason();
 
         if (!hostileSpawningAllowed) {
             if ((reason == CreatureSpawnEvent.SpawnReason.CUSTOM || reason == CreatureSpawnEvent.SpawnReason.COMMAND)) {
-                if (!allowPets) {
+                if (!allowCustomSpawning) {
                     event.setCancelled(true);
                 }
             } else {
