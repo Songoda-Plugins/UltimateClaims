@@ -101,6 +101,10 @@ public class Settings {
             "Should we enable the chunk animation",
             "when chunks are claimed/unclaimed?");
 
+    public static final ConfigSetting ALLOW_CUSTOM_SPAWN = new ConfigSetting(config, "Main.Allow Third Party Plugin and Command Spawn", true,
+            "Should third party plugin and command spawn be allowed while hostile mob spawning is disabled in claim settings?," +
+                    "This will allow you to spawn pets and other entities that are not vanilla mobs.");
+
     public static final ConfigSetting DEFAULT_CLAIM_HOSTILE_MOB_SPAWN = new ConfigSetting(config, "Default Settings.Claim.Hostile Mob Spawn", true,
             "Should hostile mob spawning be enabled by default in new claims?");
 
