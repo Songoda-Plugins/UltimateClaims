@@ -23,13 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Prepare Workspace
-        uses: craftaro/GH-Commons/.github/actions/setup_workspace@master
+        uses: Songoda-Plugins/GH-Commons/.github/actions/setup_workspace@main
         with:
           maven_username: ${{ secrets.PLUGINS_MAVEN_REPO_USERNAME }}
           maven_password: ${{ secrets.PLUGINS_MAVEN_REPO_PASSWORD }}
 
       - name: Set project version
-        uses: craftaro/GH-Commons/.github/actions/maven_set_project_version@master
+        uses: Songoda-Plugins/GH-Commons/.github/actions/maven_set_project_version@main
         with:
           append_snapshot: ${{ github.ref_type == 'tag' && 'false' || 'true' }}
           version: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
@@ -46,7 +46,7 @@ jobs:
           path: ${{ env.DEPLOYMENT_ARTIFACT_DIR }}/${{ env.DEPLOYMENT_ARTIFACT_SELECTOR }}
 
       - name: Sign jar archives
-        uses: craftaro/GH-Commons/.github/actions/sign_jars@master
+        uses: Songoda-Plugins/GH-Commons/.github/actions/sign_jars@main
         with:
           jar_file_selector: ${{ env.DEPLOYMENT_ARTIFACT_DIR }}/${{ env.DEPLOYMENT_ARTIFACT_SELECTOR }}
           keystore_gpg_encrypted: ${{ secrets.PLUGINS_JARSIGNER_KEYSTORE_GPG }}
@@ -55,7 +55,7 @@ jobs:
 
       - name: Deploy to Maven repo
         if: ${{ github.event_name == 'push' }}
-        uses: craftaro/GH-Commons/.github/actions/maven_deploy@master
+        uses: Songoda-Plugins/GH-Commons/.github/actions/maven_deploy@main
         with:
           repository_url: ${{ vars.PLUGINS_MAVEN_REPO_URL_RELEASE }}
           repository_url_snapshots: ${{ vars.PLUGINS_MAVEN_REPO_URL_SNAPSHOT }}
@@ -72,7 +72,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Notify Webhook
-        uses: craftaro/GH-Commons/.github/actions/discord_send_job_results@master
+        uses: Songoda-Plugins/GH-Commons/.github/actions/discord_send_job_results@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           webhook_url: ${{ secrets.DISCORD_BUILD_STATUS_WEBHOOK }}
