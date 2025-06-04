@@ -10,7 +10,7 @@
     <url>https://songoda.com/product/ultimateclaims-14</url>
 
     <properties>
-        <songoda.coreVersion>3.9.1-SNAPSHOT</songoda.coreVersion>
+        <songoda.coreVersion>3.9.2-SNAPSHOT</songoda.coreVersion>
 
         <maven.compiler.release>8</maven.compiler.release>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -103,8 +103,8 @@
 
     <repositories>
         <repository>
-            <id>craftaro-minecraft-plugins</id>
-            <url>https://repo.craftaro.com/repository/minecraft-plugins/</url>
+            <id>songoda-minecraft-plugins</id>
+            <url>https://repo.songoda.com/repository/minecraft-plugins/</url>
         </repository>
 
         <repository>
