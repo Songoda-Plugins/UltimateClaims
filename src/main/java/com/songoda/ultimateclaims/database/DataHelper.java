@@ -28,6 +28,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.HashMap;
@@ -712,8 +713,13 @@ public class DataHelper {
                             Location location = new Location(Bukkit.getWorld(powercellWorld), x, y, z);
                             claim.getPowerCell().setLocation(location);
 
-                            List<ItemStack> items = ItemSerializer.fromBase64(result.getString("powercell_inventory"));
-                            claim.getPowerCell().setItems(items);
+                            String data = result.getString("powercell_inventory");
+                            if (data != null) {
+                                List<ItemStack> items = ItemSerializer.fromBase64(data);
+                                claim.getPowerCell().setItems(items);
+                            } else {
+                                claim.getPowerCell().setItems(new ArrayList<>());
+                            }
                         }
 
                         claim.getPowerCell().setCurrentPower(result.getInt("power"));
