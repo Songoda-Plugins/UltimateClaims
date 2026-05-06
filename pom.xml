@@ -3,14 +3,14 @@
 
     <groupId>com.songoda</groupId>
     <artifactId>UltimateClaims</artifactId>
-    <version>3.7.1</version>
+    <version>3.8.0</version>
 
     <name>UltimateClaims</name>
     <description>Claim land with this unique grief protection tool – Fill up your power cell and keep it supplied to keep your land protected</description>
     <url>https://songoda.com/product/ultimateclaims-14</url>
 
     <properties>
-        <songoda.coreVersion>3.9.9-SNAPSHOT</songoda.coreVersion>
+        <songoda.coreVersion>4.0.0-SNAPSHOT</songoda.coreVersion>
 
         <maven.compiler.release>8</maven.compiler.release>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -34,7 +34,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.2</version>
 
                 <executions>
                     <execution>
